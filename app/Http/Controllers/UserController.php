@@ -8,17 +8,11 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function hacks()
-    {
-        $user = User::find(1);
-        $user->roles()->attach(1);
-    }
-
     public function show(User $user){
         return view('admin.users.profile', [
             'user' => $user,
             'roles'=> Role::all()
-            ]);
+        ]);
     }
 
     public function index(){
